@@ -4,7 +4,3 @@
 npm ci
 npm run build
 npm run package
-
-# ncc build lib/main.js --license licenses.txt
-
-

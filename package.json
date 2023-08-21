@@ -4,14 +4,14 @@
   "description": "Deploy to Azure Functions",
   "main": "lib/main.js",
   "engines": {
-    "node" : ">=16.0.0 <17.0.0"
+    "node": ">=16.0.0 <17.0.0"
   },
   "scripts": {
     "start": "node lib/main.js",
     "build": "tsc --project tsconfig.prod.json",
     "test": "mocha -r ts-node/register tests/**/*.spec.ts",
     "test-file": "mocha -r ts-node/register",
-    "package": "ncc build lib/main.js --license licenses.txt",
+    "package": "ncc build lib/main.js --license licenses.txt && linefix dist",
     "coverage": "nyc -r lcov -e .ts -x \"**/*.spec.ts\" npm run test",
     "coverage-report": "nyc report --reporter=json"
   },
@@ -30,6 +30,7 @@
     "@vercel/ncc": "^0.36.1",
     "chai": "^4.2.0",
     "express": "^4.17.1",
+    "linefix": "^0.1.1",
     "mocha": "^10.1.0",
     "nyc": "^15.1.0",
     "ts-node": "^9.0.0"
